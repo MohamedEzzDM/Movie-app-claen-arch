@@ -1,4 +1,4 @@
-import 'package:movies_app_clean/data/modules/movie.dart';
+import 'package:movies_app_clean/data/modules/movie_model.dart';
 import 'package:movies_app_clean/domain/entity/result.dart';
 
 class ResultModel extends Result {
