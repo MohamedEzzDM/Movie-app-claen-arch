@@ -17,7 +17,7 @@ class RemoteDataSource extends BaseRemoteDataSource {
 
   @override
   Future<List<Movie>> getNowPlayingMovies() async {
-    Response response = await client.get(ApiConstant.nowPlayingMoviesUrl);
+    Response response = await client.get(ApiConstants.nowPlayingMoviesUrl);
     if (response.statusCode == 200) {
       ResultModel receivedData = ResultModel.fromJson(response.data);
       return receivedData.moviesResult;
@@ -29,7 +29,7 @@ class RemoteDataSource extends BaseRemoteDataSource {
 
   @override
   Future<List<Movie>> getPopularMovies() async {
-    Response response = await client.get(ApiConstant.popularMoviesUrl);
+    Response response = await client.get(ApiConstants.popularMoviesUrl);
     if (response.statusCode == 200) {
       ResultModel receivedData = ResultModel.fromJson(response.data);
       return receivedData.moviesResult;
@@ -41,7 +41,7 @@ class RemoteDataSource extends BaseRemoteDataSource {
 
   @override
   Future<List<Movie>> getTopMovies() async {
-    Response response = await client.get(ApiConstant.topMoviesUrl);
+    Response response = await client.get(ApiConstants.topMoviesUrl);
     if (response.statusCode == 200) {
       ResultModel receivedData = ResultModel.fromJson(response.data);
       return receivedData.moviesResult;

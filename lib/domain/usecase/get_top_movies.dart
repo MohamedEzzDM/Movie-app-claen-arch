@@ -12,7 +12,7 @@ class GetTopMoviesUseCase{
   GetTopMoviesUseCase(this.baseMoviesRepository);
 
   Future<Either<Failure,List<Movie>>> execute(){
-    return baseMoviesRepository.getNowPlayingMovies();
+    return baseMoviesRepository.getTopMovies();
   }
 
 }

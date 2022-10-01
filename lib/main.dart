@@ -1,9 +1,14 @@
+
 import 'package:flutter/material.dart';
 
+import 'package:movies_app_clean/core/utils/app_router.dart';
+import 'package:movies_app_clean/core/utils/constant.dart';
 
-void main() {
+
+
+Future<void> main() async {
+
   runApp(const MovieApp());
-
 }
 
 class MovieApp extends StatelessWidget {
@@ -11,12 +16,25 @@ class MovieApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
+      title: "Movies App",
+      theme: myThemeData(),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-
-      ),
+      onGenerateRoute: RouteGenerator.getRoute,
+      initialRoute: RoutesConstants.homeScreen,
     );
   }
-}
 
+  ThemeData myThemeData() {
+    return ThemeData(
+        appBarTheme: const AppBarTheme(backgroundColor: ColorConstants.primary),
+        scaffoldBackgroundColor: ColorConstants.primary,
+        textTheme: const TextTheme(
+          displayMedium: TextStyle(
+            color: Colors.grey,
+            fontSize: 15
+
+          )
+        ));
+  }
+}
