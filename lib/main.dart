@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:movies_app_clean/core/di/service_locator.dart';
 
 import 'package:movies_app_clean/core/utils/app_router.dart';
 import 'package:movies_app_clean/core/utils/constant.dart';
@@ -7,6 +8,7 @@ import 'package:movies_app_clean/core/utils/constant.dart';
 
 
 Future<void> main() async {
+  ServiceLocator().init();
 
   runApp(const MovieApp());
 }
@@ -34,7 +36,13 @@ class MovieApp extends StatelessWidget {
             color: Colors.grey,
             fontSize: 15
 
-          )
+          ),
+            displaySmall: TextStyle(
+                color: Colors.white,
+                fontSize: 13,
+
+
+            )
         ));
   }
 }

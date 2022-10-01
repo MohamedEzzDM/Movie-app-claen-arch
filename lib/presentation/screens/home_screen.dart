@@ -5,6 +5,8 @@ import 'package:movies_app_clean/core/utils/constant.dart';
 import 'package:movies_app_clean/presentation/logic/home/home_screen_cubit.dart';
 
 import '../../domain/entity/movie.dart';
+import '../widgets/my_app_bar.dart';
+import '../widgets/my_slider_item.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -69,29 +71,34 @@ class HomeScreen extends StatelessWidget {
                       itemCount: BlocProvider.of<HomeScreenCubit>(context).topRatedMovies.length,
                       itemBuilder: (BuildContext context, int index) {
                         Movie movie = BlocProvider.of<HomeScreenCubit>(context).topRatedMovies[index];
-                        return Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.network(
-                              "${ApiConstants.baseImageUrl}${movie.posterPath}",
-                              height: 200,
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            SizedBox(
-                              child: Text(
-                                maxLines: 2,
-                                "${movie.name}",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
+                        return GestureDetector(
+                          onTap: (){
+                            Navigator.pushNamed(context, RoutesConstants.detailsScreen,arguments: {'id':movie.id});
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.network(
+                                "${ApiConstants.baseImageUrl}${movie.posterPath}",
+                                height: 200,
                               ),
-                              width: 130,
-                            )
-                          ],
+                              SizedBox(
+                                height: 5,
+                              ),
+                              SizedBox(
+                                child: Text(
+                                  maxLines: 2,
+                                  "${movie.name}",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                width: 130,
+                              )
+                            ],
+                          ),
                         );
                       },
                       separatorBuilder: (BuildContext context, int index) {
@@ -140,29 +147,34 @@ class HomeScreen extends StatelessWidget {
                       itemCount: BlocProvider.of<HomeScreenCubit>(context).popularMovies.length,
                       itemBuilder: (BuildContext context, int index) {
                         Movie movie = BlocProvider.of<HomeScreenCubit>(context).popularMovies[index];
-                        return Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.network(
-                              "${ApiConstants.baseImageUrl}${movie.posterPath}",
-                              height: 200,
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            SizedBox(
-                              child: Text(
-                                maxLines: 2,
-                                "${movie.name}",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
+                        return GestureDetector(
+                          onTap: (){
+                            Navigator.pushNamed(context, RoutesConstants.detailsScreen,arguments: {'id':movie.id});
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.network(
+                                "${ApiConstants.baseImageUrl}${movie.posterPath}",
+                                height: 200,
                               ),
-                              width: 130,
-                            )
-                          ],
+                              SizedBox(
+                                height: 5,
+                              ),
+                              SizedBox(
+                                child: Text(
+                                  maxLines: 2,
+                                  "${movie.name}",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                width: 130,
+                              )
+                            ],
+                          ),
                         );
                       },
                       separatorBuilder: (BuildContext context, int index) {
@@ -194,6 +206,7 @@ class MySlider extends StatelessWidget {
 
     return CarouselSlider(
       items: List.from(BlocProvider.of<HomeScreenCubit>(context).nowPlayingMovies.map((movie) => MySliderItem(
+        fit: StackFit.expand,
             movie: movie,
           ))),
       options: CarouselOptions(viewportFraction: 1,
@@ -202,74 +215,5 @@ class MySlider extends StatelessWidget {
   }
 }
 
-class MySliderItem extends StatelessWidget {
-  const MySliderItem({Key? key, required this.movie}) : super(key: key);
 
-  final Movie movie;
 
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        Container(
-          foregroundDecoration:
-              BoxDecoration(gradient: mySliderLinearGradient()),
-          child: Image.network(
-            "${ApiConstants.baseImageUrl}${movie.backdropPath}",
-          ),
-        ),
-        Positioned(
-            left: 20,
-            bottom: 30,
-            child: Text(
-              "${movie.name}",
-              style: const TextStyle(
-                  fontSize: 15,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ))
-      ],
-    );
-  }
-
-  LinearGradient mySliderLinearGradient() {
-    return LinearGradient(
-      begin: Alignment.bottomCenter,
-      end: Alignment.center,
-      colors: [
-        ColorConstants.primary,
-        ColorConstants.primary.withOpacity(0.5),
-      ],
-    );
-  }
-}
-
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      leading: const Icon(Icons.motion_photos_pause_outlined),
-      title: const Text(
-        "FreeFlex",
-      ),
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.search),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.settings),
-        ),
-      ],
-    );
-  }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(50.0);
-}
