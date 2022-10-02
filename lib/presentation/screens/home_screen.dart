@@ -32,10 +32,13 @@ class HomeScreen extends StatelessWidget {
                   );
                 }
                 else{
-                  return MySlider();
+                  return const MySlider();
                 }
               },
               listener: (BuildContext context, Object? state) {  },),
+            Divider(
+              color: Colors.grey.withOpacity(0.8),
+            ),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Row(
@@ -67,6 +70,7 @@ class HomeScreen extends StatelessWidget {
                   return SizedBox(
                     height: 250,
                     child: ListView.separated(
+
                       scrollDirection: Axis.horizontal,
                       itemCount: BlocProvider.of<HomeScreenCubit>(context).topRatedMovies.length,
                       itemBuilder: (BuildContext context, int index) {
@@ -83,26 +87,26 @@ class HomeScreen extends StatelessWidget {
                                 "${ApiConstants.baseImageUrl}${movie.posterPath}",
                                 height: 200,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               SizedBox(
+                                width: 130,
                                 child: Text(
                                   maxLines: 2,
-                                  "${movie.name}",
-                                  style: TextStyle(
+                                  movie.name,
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
-                                width: 130,
                               )
                             ],
                           ),
                         );
                       },
                       separatorBuilder: (BuildContext context, int index) {
-                        return SizedBox(
+                        return const SizedBox(
                           width: 10,
                         );
                       },
@@ -111,7 +115,9 @@ class HomeScreen extends StatelessWidget {
                 }
               },
               listener: (BuildContext context, Object? state) {  },),
-
+            Divider(
+              color: Colors.grey.withOpacity(0.5),
+            ),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Row(
@@ -159,26 +165,26 @@ class HomeScreen extends StatelessWidget {
                                 "${ApiConstants.baseImageUrl}${movie.posterPath}",
                                 height: 200,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               SizedBox(
+                                width: 130,
                                 child: Text(
                                   maxLines: 2,
-                                  "${movie.name}",
-                                  style: TextStyle(
+                                  movie.name,
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
-                                width: 130,
                               )
                             ],
                           ),
                         );
                       },
                       separatorBuilder: (BuildContext context, int index) {
-                        return SizedBox(
+                        return const SizedBox(
                           width: 10,
                         );
                       },
@@ -206,6 +212,7 @@ class MySlider extends StatelessWidget {
 
     return CarouselSlider(
       items: List.from(BlocProvider.of<HomeScreenCubit>(context).nowPlayingMovies.map((movie) => MySliderItem(
+        bottomSpace: 20,
         fit: StackFit.expand,
             movie: movie,
           ))),

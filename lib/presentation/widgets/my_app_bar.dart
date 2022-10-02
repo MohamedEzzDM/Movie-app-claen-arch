@@ -9,7 +9,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: const Icon(Icons.motion_photos_pause_outlined),
       title: const Text(
-        "FreeFlex",
+        "Popcornflix",
       ),
       actions: [
         IconButton(

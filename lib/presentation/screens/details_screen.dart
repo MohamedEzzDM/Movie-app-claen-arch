@@ -60,7 +60,7 @@ class DetailsScreen extends StatelessWidget {
                             ),
                             Positioned(
                                 left: 12,
-                                bottom: 30,
+                                bottom: 5,
                                 child: Text(
                                   movieDetails.name,
                                   style: const TextStyle(
@@ -75,7 +75,7 @@ class DetailsScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               Text(
-                                "${movieDetails.releaseDate}-",
+                                movieDetails.releaseDate,
                                 style: Theme.of(context).textTheme.displaySmall,
                               ),
                             ],
