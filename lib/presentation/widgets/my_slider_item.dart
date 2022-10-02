@@ -28,7 +28,7 @@ class MySliderItem extends StatelessWidget {
             left: 12,
             bottom: bottomSpace,
             child: Text(
-              "${movie.name}",
+              movie.name,
               style: const TextStyle(
                   fontSize: 15,
                   color: Colors.white,
