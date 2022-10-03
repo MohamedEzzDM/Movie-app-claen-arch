@@ -79,7 +79,6 @@ class HomeScreen extends StatelessWidget {
                         return GestureDetector(
                           onTap: (){
                             BlocProvider.of<SharedCubit>(context).index = movie.id;
-                            print("put index ${BlocProvider.of<SharedCubit>(context).index} ");
                             Navigator.pushNamed(context, RoutesConstants.detailsScreen,arguments: {'id':movie.id});
                           },
                           child: Column(
@@ -225,6 +224,8 @@ class MySlider extends StatelessWidget {
       autoPlay: true),
     );
   }
+
+
 }
 
 
