@@ -11,7 +11,7 @@ import 'constant.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
-    final args = settings.arguments;
+
     switch (settings.name) {
       case RoutesConstants.homeScreen:
         return MaterialPageRoute(
@@ -28,9 +28,9 @@ class RouteGenerator {
         return MaterialPageRoute(
         settings: settings,builder: (_) => BlocProvider<DetailsScreenCubit>(
           create: (BuildContext context) {
-            return DetailsScreenCubit(sl(),sl())..init((args)['id']);
+            return DetailsScreenCubit(sl(),sl());
           },
-          child:  DetailsScreen(args as Map),
+          child:  DetailsScreen(),
         ));
 
       default:

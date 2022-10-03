@@ -8,17 +8,17 @@ import 'package:movies_app_clean/presentation/widgets/my_app_bar.dart';
 
 
 import '../../domain/entity/character.dart';
+import '../logic/shared/shared_cubit.dart';
 
 
 class DetailsScreen extends StatelessWidget {
-  DetailsScreen(Map args, {Key? key}) : super(key: key) {
-    movieId = args['id'];
-  }
+  const DetailsScreen({Key? key}) : super(key: key);
 
-  late final int movieId;
+
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<DetailsScreenCubit>(context).init(BlocProvider.of<SharedCubit>(context).index);
     return Scaffold(
       appBar: const MyAppBar(),
       body: SingleChildScrollView(

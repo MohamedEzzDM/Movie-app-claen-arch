@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app_clean/core/utils/constant.dart';
 import 'package:movies_app_clean/presentation/logic/home/home_screen_cubit.dart';
+import 'package:movies_app_clean/presentation/logic/shared/shared_cubit.dart';
 
 import '../../domain/entity/movie.dart';
 import '../widgets/my_app_bar.dart';
@@ -77,6 +78,8 @@ class HomeScreen extends StatelessWidget {
                         Movie movie = BlocProvider.of<HomeScreenCubit>(context).topRatedMovies[index];
                         return GestureDetector(
                           onTap: (){
+                            BlocProvider.of<SharedCubit>(context).index = movie.id;
+                            print("put index ${BlocProvider.of<SharedCubit>(context).index} ");
                             Navigator.pushNamed(context, RoutesConstants.detailsScreen,arguments: {'id':movie.id});
                           },
                           child: Column(
@@ -155,6 +158,8 @@ class HomeScreen extends StatelessWidget {
                         Movie movie = BlocProvider.of<HomeScreenCubit>(context).popularMovies[index];
                         return GestureDetector(
                           onTap: (){
+                            BlocProvider.of<SharedCubit>(context).index = movie.id;
+                            print("put index ${BlocProvider.of<SharedCubit>(context).index} ");
                             Navigator.pushNamed(context, RoutesConstants.detailsScreen,arguments: {'id':movie.id});
                           },
                           child: Column(
