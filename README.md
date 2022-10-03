@@ -1,16 +1,35 @@
-# movies_app_clean
+<h1 align="center">:octocat: Movie DB App :octocat:</h1>
 
-A new Flutter project.
+## Table of Contents
 
-## Getting Started
+- [Introduction](#introduction)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Screenshots](#screenshots)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Introduction
+Movie DB is an application to show all movies in the world. The data is provide by API from <a href="https://www.themoviedb.org/documentation/api">TMDB Movie</a>.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features
+* User can see all Movie like upcoming movie, top rated movie, popular movie, and more
+* User can see detail movie like decsription, movie casts, rating, and more.
+* And more
+
+## Requirements
+* [`Flutter`](http://flutter.dev/)
+
+
+
+## Screenshot
+<div>
+    <img width="250" src="https://raw.githubusercontent.com/MohamedEzzDM/Movie-app-claen-arch/master/screenshots/s1.jpg">
+    <img width="250" src="https://raw.githubusercontent.com/MohamedEzzDM/Movie-app-claen-arch/master/screenshots/s2.jpg">  
+    <img width="250" src="https://raw.githubusercontent.com/MohamedEzzDM/Movie-app-claen-arch/master/screenshots/s3.jpg">
+    <img width="250" src="https://raw.githubusercontent.com/MohamedEzzDM/Movie-app-claen-arch/master/screenshots/s4.jpg">
+    <img width="250" src="https://raw.githubusercontent.com/MohamedEzzDM/Movie-app-claen-arch/master/screenshots/s5.jpg">
+    
+</div>
+
+
