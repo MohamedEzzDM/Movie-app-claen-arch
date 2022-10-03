@@ -5,7 +5,7 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Requirements](#requirements)
-- [Screenshots](#screenshot)
+- [Screenshots](#screenshots)
 - [Dependencies](#dependencies)
 
 
@@ -23,7 +23,7 @@ Movie DB is an application to show all movies in the world. The data is provide 
 
 
 
-## Screenshot
+## Screenshots
 <div>
     <img width="250" src="https://raw.githubusercontent.com/MohamedEzzDM/Movie-app-claen-arch/master/screenshots/s1.jpg">
     <img width="250" src="https://raw.githubusercontent.com/MohamedEzzDM/Movie-app-claen-arch/master/screenshots/s2.jpg">  
