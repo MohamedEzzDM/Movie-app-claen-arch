@@ -47,3 +47,4 @@ Movie DB is an application to show all movies in the world. The data is provide 
   bloc: ^8.1.0
   carousel_slider: 4.1.1 
 ```
+
