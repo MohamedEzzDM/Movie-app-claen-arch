@@ -28,6 +28,3 @@ class ErrorResponseModel extends Equatable{
   ];
 }
 
-class a7a{
-
-}
